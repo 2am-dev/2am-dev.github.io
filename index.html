@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2am-dev</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Background grid -->
+  <div class="bg-grid"></div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="badge">available for projects</div>
+      <h1 class="logo"><span class="accent">2am</span>-dev</h1>
+      <p class="tagline">// building things when the world is quiet</p>
+      <div class="hero-stats" id="heroStats">
+        <div class="stat"><span id="repoCount">—</span><small>repos</small></div>
+        <div class="stat"><span id="starCount">—</span><small>stars</small></div>
+        <div class="stat"><span id="forkCount">—</span><small>forks</small></div>
+      </div>
+      <a href="https://github.com/2am-dev" target="_blank" class="gh-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </header>
+
+  <!-- Controls -->
+  <section class="controls">
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="search projects..." />
+    </div>
+    <div class="filter-wrap">
+      <button class="filter-btn active" data-filter="all">all</button>
+      <button class="filter-btn" data-filter="JavaScript">js</button>
+      <button class="filter-btn" data-filter="Python">py</button>
+      <button class="filter-btn" data-filter="TypeScript">ts</button>
+      <button class="filter-btn" data-filter="HTML">html</button>
+      <button class="filter-btn" data-filter="other">other</button>
+    </div>
+    <div class="sort-wrap">
+      <select id="sortSelect">
+        <option value="updated">recently updated</option>
+        <option value="stars">most stars</option>
+        <option value="forks">most forks</option>
+        <option value="name">name a–z</option>
+        <option value="created">newest</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Projects grid -->
+  <main class="projects-section">
+    <div class="projects-grid" id="projectsGrid"></div>
+    <div class="loader" id="loader">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <p>fetching repos...</p>
+    </div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <span>¯\_(ツ)_/¯</span>
+      <p>no projects match that filter</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© <span id="year"></span> <span class="accent">2am-dev</span> · built with GitHub API · last synced <span id="lastSync">—</span></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
